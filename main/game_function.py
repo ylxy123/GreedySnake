@@ -79,7 +79,7 @@ def check_choose_events(ai_settings):
 
 # 绘制难度选择页
 def show_choose_level(ai_settings, screen):
-    background1 = pygame.image.load(r"选择难度1.jpg")
+    background1 = pygame.image.load(r"../image/选择难度1.jpg")
     level_font = pygame.font.Font("../font/STKAITI.TTF",40)      # 设置难度选择标题
     level_image = level_font.render('↓ 选择你想要的难度 ↓',True,(255, 255, 240))
 
@@ -269,9 +269,9 @@ def is_eat_food(ai_settings, snake, food):
 
 # 绘制游戏界面
 def update_screen(ai_settings, screen, snake,food):
-    scores_font = pygame.font.Font("STKAITI.TTF", 30 )
+    scores_font = pygame.font.Font("../font/STKAITI.TTF", 30 )
     scores_image = scores_font.render(u"当前得分: %d "% ai_settings.score , True, (0,51,51))
-    length_font = pygame.font.Font("STKAITI.TTF", 30 )
+    length_font = pygame.font.Font("../font/STKAITI.TTF", 30 )
     length_image = length_font.render(u"蛇身长度: %d "% ai_settings.length , True, (0,51,51))
     screen.fill(ai_settings.bg_color)
     draw_grid(ai_settings, screen)
@@ -358,11 +358,11 @@ def read_list_txt(file_name, list_mode1, list_mode2, list_mode3):
 
 # 绘制排行榜
 def show_list(ai_settings,screen):
-    排 = pygame.image.load('排.png')
-    行 = pygame.image.load('行.png')
-    榜 = pygame.image.load('榜.png')
-    background = pygame.image.load(r"排行榜.jpg")
-    font1 = pygame.font.Font("STKAITI.TTF", 35)
+    排 = pygame.image.load('../image/排.png')
+    行 = pygame.image.load('../image/行.png')
+    榜 = pygame.image.load('../image/榜.png')
+    background = pygame.image.load(r"../image/排行榜.jpg")
+    font1 = pygame.font.Font("../font/STKAITI.TTF", 35)
     image1 = font1.render('按 1 返回主界面', True, (0, 0, 0))
 
     # 读取排行榜数据
@@ -378,15 +378,15 @@ def show_list(ai_settings,screen):
         screen.blit(行, (310, 30))
         screen.blit(榜, (590, 30))
         screen.blit(image1, (400 ,500))
-        screen.blit(pygame.font.Font('STKAITI.TTF',35).render('↓  难度1  ↓', True, (0, 0, 0)),(50, 200))
-        screen.blit(pygame.font.Font('STKAITI.TTF', 35).render('↓  难度2  ↓', True, (0, 0, 0)), (310, 200))
-        screen.blit(pygame.font.Font('STKAITI.TTF', 35).render('↓  难度3  ↓', True, (0, 0, 0)), (560, 200))
+        screen.blit(pygame.font.Font('../font/STKAITI.TTF',35).render('↓  难度1  ↓', True, (0, 0, 0)),(50, 200))
+        screen.blit(pygame.font.Font('../font/STKAITI.TTF', 35).render('↓  难度2  ↓', True, (0, 0, 0)), (310, 200))
+        screen.blit(pygame.font.Font('../font/STKAITI.TTF', 35).render('↓  难度3  ↓', True, (0, 0, 0)), (560, 200))
         for i in range(5):
-            screen.blit(pygame.font.Font('STKAITI.TTF', 25).render(l1[i], True, (0, 0, 0)), (80 ,263 + i * 37))
+            screen.blit(pygame.font.Font('../font/STKAITI.TTF', 25).render(l1[i], True, (0, 0, 0)), (80 ,263 + i * 37))
         for i in range(5):
-            screen.blit(pygame.font.Font('STKAITI.TTF', 25).render(l2[i], True, (0, 0, 0)), (340 ,263 + i * 37))
+            screen.blit(pygame.font.Font('../font/STKAITI.TTF', 25).render(l2[i], True, (0, 0, 0)), (340 ,263 + i * 37))
         for i in range(5):
-            screen.blit(pygame.font.Font('STKAITI.TTF', 25).render(l3[i], True, (0, 0, 0)), (600, 263 + i * 37))
+            screen.blit(pygame.font.Font('../font/STKAITI.TTF', 25).render(l3[i], True, (0, 0, 0)), (600, 263 + i * 37))
 
         check_list_events(ai_settings)  # 检测键盘
         if ai_settings.game_stats == 0:
