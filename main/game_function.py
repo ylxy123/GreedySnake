@@ -27,15 +27,15 @@ def check_events(ai_settings):
 
 # 绘制启动页
 def show_start_interface(ai_settings, screen):
-    title_Font = pygame.font.Font("STXINGKA.TTF", 90)  # 设置标题字体
+    title_Font = pygame.font.Font("../font/STXINGKA.TTF", 90)  # 设置标题字体
     title_image = title_Font.render("贪吃蛇", True, (0, 0, 0))  #
-    background = pygame.image.load(r"贪吃蛇启动界面背景2.jpg")
-    author_font = pygame.font.Font("STXINGKA.TTF", 40)
+    background = pygame.image.load(r"../image/贪吃蛇启动界面背景2.jpg")
+    author_font = pygame.font.Font("../font/STXINGKA.TTF", 40)
     author_image = author_font.render(u"made by : ylxy~~~", True, (0, 0, 0))
 
-    presskey_font = pygame.font.Font("STKAITI.TTF", 35)  # 设置说明文字的字体
+    presskey_font = pygame.font.Font("../font/STKAITI.TTF", 35)  # 设置说明文字的字体
     presskey_image = presskey_font.render('按 1 开始游戏\n按 Esc 退出游戏', True, (0, 0, 0))
-    list_font = pygame.font.Font("STKAITI.TTF", 30)   # 设置排行榜说明文字字体
+    list_font = pygame.font.Font("../font/STKAITI.TTF", 30)   # 设置排行榜说明文字字体
     list_image = list_font.render('按 F2 进入排行榜', True, (0, 0, 0))
 
     while True:
@@ -80,19 +80,19 @@ def check_choose_events(ai_settings):
 # 绘制难度选择页
 def show_choose_level(ai_settings, screen):
     background1 = pygame.image.load(r"选择难度1.jpg")
-    level_font = pygame.font.Font("STKAITI.TTF",40)      # 设置难度选择标题
+    level_font = pygame.font.Font("../font/STKAITI.TTF",40)      # 设置难度选择标题
     level_image = level_font.render('↓ 选择你想要的难度 ↓',True,(255, 255, 240))
 
-    key1_font = pygame.font.Font("STKAITI.TTF", 20)       # 设置说明文字的字体
+    key1_font = pygame.font.Font("../font/STKAITI.TTF", 20)       # 设置说明文字的字体
     key1_image = key1_font.render('按 1 选择难度1', True, (0, 0, 0))
 
-    key2_font = pygame.font.Font("STKAITI.TTF", 20)
+    key2_font = pygame.font.Font("../font/STKAITI.TTF", 20)
     key2_image = key2_font.render('按 2 选择难度2', True, (0, 0, 0))
 
-    key3_font = pygame.font.Font("STKAITI.TTF", 20)
+    key3_font = pygame.font.Font("../font/STKAITI.TTF", 20)
     key3_image = key3_font.render('按 3 选择难度3', True, (0, 0, 0))
 
-    key4_font = pygame.font.Font("STKAITI.TTF", 25)
+    key4_font = pygame.font.Font("../font/STKAITI.TTF", 25)
     key4_image = key4_font.render('按 F1 返回主界面', True, (0, 0, 0))
 
 
