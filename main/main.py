@@ -18,17 +18,19 @@ pygame.display.set_caption('贪吃蛇')  # 添加游戏标题
 snake = Snake(ai_settings)  # 创建蛇
 food = Food(ai_settings, snake)  # 创建食物
 
-
+# 游戏难度1
 def run_game1_1():
     ai_settings.clock_frq = 5
     gf.check_play_events(snake)
     gf.update_screen(ai_settings, screen, snake, food)
 
+# 游戏难度2
 def run_game1_2():
     ai_settings.clock_frq = 10
     gf.check_play_events(snake)
     gf.update_screen(ai_settings, screen, snake, food)
 
+# 游戏难度3
 def run_game1_3():
     ai_settings.clock_frq = 15
     gf.check_play_events(snake)

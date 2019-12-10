@@ -5,6 +5,7 @@
 
 import pygame
 import sys
+import pymysql as pms
 
 
 # 检测启动页的键盘操作
@@ -73,6 +74,7 @@ def check_choose_events(ai_settings):
             # 按3键选择难度3
             elif event.key == pygame.K_3:
                 ai_settings.game_stats = 3
+            # 按F1键返回主菜单
             elif event.key == pygame.K_F1:
                 ai_settings.game_stats = 0
 
@@ -110,6 +112,13 @@ def show_choose_level(ai_settings, screen):
             break
         pygame.display.flip()
 
+# 将数据插入本地数据库
+def add_into_database(execute):
+    db = pms.connect('localhost','root','2252',"greedy_snake")
+    cursor = db.cursor()
+    cursor.execute(execute)
+    db.commit()
+    cursor.close()
 
 # 绘制结束页，game over位于屏幕中间
 def show_end_interface(ai_settings, screen):
@@ -130,10 +139,13 @@ def show_end_interface(ai_settings, screen):
             f.write('%d %d'%(ai_settings.score,ai_settings.length))
             if ai_settings.score / ai_settings.length == 5:
                 f.write(' 1\n')
+                add_into_database('insert into data1(score,length) values (%d,%d);'%(ai_settings.score,ai_settings.length))
             elif ai_settings.score / ai_settings.length == 50:
                 f.write(' 3\n')
+                add_into_database('insert into data3(score,length) values (%d,%d);' % (ai_settings.score, ai_settings.length))
             else:
                 f.write(' 2\n')
+                add_into_database('insert into data3(score,length) values (%d,%d);' % (ai_settings.score, ai_settings.length))
     # 结束页维持一段时间后，返回启动页，通过修改ai_settings中的game_stats实现
     pygame.time.wait(2000)
     ai_settings.game_stats = 0
@@ -306,6 +318,13 @@ def check_list_events(ai_settings):
             elif event.key == pygame.K_1:
                 ai_settings.game_stats = 0
 
+# 从数据库中读取排行榜数据
+def read_list_database():
+    db = pms.connect('localhost','root','2252',"greedy_snake")
+    cursor = db.cursor()
+    cursor.execute("select name,score,length,game_mode from data;")
+
+
 # 从txt文件中读取排行榜数据
 def read_list_txt(file_name, list_mode1, list_mode2, list_mode3):
     """
@@ -352,7 +371,7 @@ def read_list_txt(file_name, list_mode1, list_mode2, list_mode3):
         list_mode2[i] = ("NO.%d     %d" % (i + 1, game_mode2[-i - 1][0]))
         list_mode3[i] = ("NO.%d     %d" % (i + 1, game_mode3[-i - 1][0]))
 
-    return list_mode1, list_mode2, list_mode3
+    #return list_mode1, list_mode2, list_mode3
 
 
 
