@@ -13,6 +13,4 @@ v1.2  -Added difficulty selection interface（Three levels）
 v1.3  -Added game background music
       ------增加游戏背景音乐
 
-**v1.4-Recently updated --Added Ranklist（Top 5 in each level） ------最近更新-v1.4-增加排行榜（每种等级展示历史前五名）**
-
-   
+**v1.4-Recently updated --Added Ranklist（Top 5 in each level） ------最近更新-v1.4-增加排行榜（每种等级展示历史前五名）[以本地txt为database]**
