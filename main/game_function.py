@@ -139,13 +139,13 @@ def show_end_interface(ai_settings, screen):
             f.write('%d %d'%(ai_settings.score,ai_settings.length))
             if ai_settings.score / ai_settings.length == 5:
                 f.write(' 1\n')
-                add_into_database('insert into data1(score,length) values (%d,%d);'%(ai_settings.score,ai_settings.length))
+                add_into_database('replace into data1(score,length) values (%d,%d);'%(ai_settings.score,ai_settings.length))
             elif ai_settings.score / ai_settings.length == 50:
                 f.write(' 3\n')
-                add_into_database('insert into data3(score,length) values (%d,%d);' % (ai_settings.score, ai_settings.length))
+                add_into_database('replace into data3(score,length) values (%d,%d);' % (ai_settings.score, ai_settings.length))
             else:
                 f.write(' 2\n')
-                add_into_database('insert into data3(score,length) values (%d,%d);' % (ai_settings.score, ai_settings.length))
+                add_into_database('replace into data3(score,length) values (%d,%d);' % (ai_settings.score, ai_settings.length))
     # 结束页维持一段时间后，返回启动页，通过修改ai_settings中的game_stats实现
     pygame.time.wait(2000)
     ai_settings.game_stats = 0

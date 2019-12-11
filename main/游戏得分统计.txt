@@ -28,3 +28,5 @@ score length game_mode
 300 6 3
 300 6 3
 200 4 3
+200 4 3
+200 4 3
