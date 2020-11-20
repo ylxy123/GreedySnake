@@ -2,11 +2,14 @@
 # @Author : Ylxy
 # @File : main.py.py
 # -*- coding: utf-8 -*-
+from pygame.locals import *
 from settings import Settings
 import pygame
 import game_function as gf
 from snake import Snake
 from food import Food
+import random
+import sys
 
 
 ai_settings = Settings()  # 设置屏幕
@@ -17,6 +20,7 @@ pygame.display.set_caption('贪吃蛇')  # 添加游戏标题
 
 snake = Snake(ai_settings)  # 创建蛇
 food = Food(ai_settings, snake)  # 创建食物
+
 
 
 def run_game1_1():
@@ -39,6 +43,7 @@ def run_game():
     music = pygame.mixer.music.load("bgm.wav")
     pygame.mixer.music.play()
 
+
     while True:
         if ai_settings.game_stats == 0:
             gf.show_start_interface(ai_settings, screen)
@@ -57,6 +62,9 @@ def run_game():
             run_game1_3()
         elif ai_settings.game_stats == 4:
             gf.show_list(ai_settings, screen)
+        elif ai_settings.game_stats == 22:
+            gf.run_game_ai(ai_settings)
+            gf.show_end_interface(ai_settings, screen)
 
 
 if __name__ == "__main__":
